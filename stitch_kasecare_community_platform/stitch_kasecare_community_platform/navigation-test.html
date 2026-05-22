@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KacheCare - Navigation Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fcf9f8 0%, #f6f3f2 100%);
+        }
+        .page-card {
+            transition: all 0.3s ease;
+        }
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 69, 42, 0.1);
+        }
+        .status-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4" style="color: #00452a; font-family: 'Sora', sans-serif;">
+                KacheCare Navigation Test
+            </h1>
+            <p class="text-xl text-gray-600">
+                Click any card below to test the navigation between pages
+            </p>
+            <div class="mt-4 inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+                <span class="status-badge inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="font-semibold">All Pages Connected</span>
+            </div>
+        </div>
+
+        <!-- Page Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <!-- Home Page -->
+            <a href="kasecare_home/code.html" class="page-card block bg-white rounded-2xl p-8 border-2 border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center text-3xl">
+                        🏠
+                    </div>
+                    <span class="bg-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold">ENTRY POINT</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2" style="color: #00452a;">Home / Landing Page</h2>
+                <p class="text-gray-600 mb-4">
+                    Main landing page with hero section, value pillars, testimonials, and CTAs
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Hero Section</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Testimonials</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">CTA Buttons</span>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">
+                        <strong>Links to:</strong> Join Page, Find Care Dashboard
+                    </p>
+                </div>
+            </a>
+
+            <!-- Join Page -->
+            <a href="join_kasecare/code.html" class="page-card block bg-white rounded-2xl p-8 border-2 border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl">
+                        ✍️
+                    </div>
+                    <span class="bg-yellow-500 text-white text-xs px-3 py-1 rounded-full font-semibold">AUTH</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2" style="color: #00452a;">Join / Sign Up</h2>
+                <p class="text-gray-600 mb-4">
+                    User registration with role selection (care seeker vs care provider)
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Role Selection</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Sign Up Form</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Social Login</span>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">
+                        <strong>Links to:</strong> Home, Find Care Dashboard
+                    </p>
+                </div>
+            </a>
+
+            <!-- Find Care Dashboard -->
+            <a href="find_care_dashboard/code.html" class="page-card block bg-white rounded-2xl p-8 border-2 border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl">
+                        🔍
+                    </div>
+                    <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-semibold">DASHBOARD</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2" style="color: #00452a;">Find Care Dashboard</h2>
+                <p class="text-gray-600 mb-4">
+                    Browse and search for verified caregivers with filters and ratings
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Search Bar</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Filter Chips</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Caregiver Cards</span>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">
+                        <strong>Links to:</strong> Home, Join Page, Caregiver Profile
+                    </p>
+                </div>
+            </a>
+
+            <!-- Caregiver Profile -->
+            <a href="caregiver_profile_amina_rahman/code.html" class="page-card block bg-white rounded-2xl p-8 border-2 border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center text-3xl">
+                        👤
+                    </div>
+                    <span class="bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold">PROFILE</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2" style="color: #00452a;">Caregiver Profile</h2>
+                <p class="text-gray-600 mb-4">
+                    Detailed profile with credentials, experience, availability, and reviews
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Trust Badges</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Timeline</span>
+                    <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Reviews</span>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">
+                        <strong>Links to:</strong> Home, Find Care Dashboard, Join Page
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Navigation Flow Diagram -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center" style="color: #00452a;">Navigation Flow</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                <div class="bg-green-50 px-6 py-4 rounded-xl border-2 border-green-200">
+                    <div class="font-bold text-green-800">Home</div>
+                    <div class="text-xs text-green-600">Landing Page</div>
+                </div>
+                <div class="text-2xl text-gray-400">→</div>
+                <div class="bg-yellow-50 px-6 py-4 rounded-xl border-2 border-yellow-200">
+                    <div class="font-bold text-yellow-800">Join</div>
+                    <div class="text-xs text-yellow-600">Sign Up</div>
+                </div>
+                <div class="text-2xl text-gray-400">→</div>
+                <div class="bg-blue-50 px-6 py-4 rounded-xl border-2 border-blue-200">
+                    <div class="font-bold text-blue-800">Dashboard</div>
+                    <div class="text-xs text-blue-600">Find Care</div>
+                </div>
+                <div class="text-2xl text-gray-400">→</div>
+                <div class="bg-purple-50 px-6 py-4 rounded-xl border-2 border-purple-200">
+                    <div class="font-bold text-purple-800">Profile</div>
+                    <div class="text-xs text-purple-600">View Details</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features List -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100">
+            <h2 class="text-2xl font-bold mb-6" style="color: #00452a;">✨ Features Implemented</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Responsive Navigation</div>
+                        <div class="text-sm text-gray-600">Desktop top bar + mobile bottom bar</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Interconnected Pages</div>
+                        <div class="text-sm text-gray-600">All pages properly linked</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Interactive Elements</div>
+                        <div class="text-sm text-gray-600">Hover effects, transitions, animations</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Modern Design</div>
+                        <div class="text-sm text-gray-600">Tailwind CSS + Material Icons</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Mobile Optimized</div>
+                        <div class="text-sm text-gray-600">Fully responsive on all devices</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-green-500 text-xl">✓</span>
+                    <div>
+                        <div class="font-semibold">Pure HTML/CSS/JS</div>
+                        <div class="text-sm text-gray-600">No backend required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-500">
+            <p class="mb-2">KacheCare Community Platform</p>
+            <p class="text-sm">Neighborhood warmth, verified trust 💚</p>
+        </div>
+    </div>
+</body>
+</html>

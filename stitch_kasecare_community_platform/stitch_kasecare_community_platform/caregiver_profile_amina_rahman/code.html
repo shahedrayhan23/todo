@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Caregiver Profile | KacheCare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#4a4737",
+                        "surface-container-high": "#eae7e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ccc6b1",
+                        "tertiary": "#3f3c2c",
+                        "surface-dim": "#dcd9d9",
+                        "secondary": "#785900",
+                        "on-secondary-container": "#6c5000",
+                        "secondary-fixed-dim": "#fabd00",
+                        "secondary-fixed": "#ffdf9e",
+                        "primary-fixed": "#aef1c8",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline": "#707972",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary-container": "#93d5ae",
+                        "on-primary-fixed-variant": "#085134",
+                        "on-tertiary-container": "#cdc7b1",
+                        "surface-tint": "#296a4a",
+                        "tertiary-container": "#575342",
+                        "tertiary-fixed": "#e9e2cc",
+                        "primary-container": "#1b5e3f",
+                        "inverse-primary": "#93d5ae",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002112",
+                        "on-secondary-fixed": "#261a00",
+                        "inverse-on-surface": "#f3f0f0",
+                        "primary-fixed-dim": "#93d5ae",
+                        "outline-variant": "#bfc9c0",
+                        "background": "#fcf9f8",
+                        "on-background": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "primary": "#00452a",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed": "#1e1c0e",
+                        "secondary-container": "#fdc003",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#404942",
+                        "surface": "#fcf9f8",
+                        "surface-container": "#f0eded"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "2.5rem",
+                        "container-padding-mobile": "1.25rem",
+                        "gutter": "1.5rem",
+                        "section-gap": "4rem",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Sora"],
+                        "headline-xl": ["Sora"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .circular-embrace {
+            border-radius: 64% 36% 70% 30% / 30% 60% 40% 70%;
+            overflow: hidden;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">KacheCare</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="../kasecare_home/code.html">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="../find_care_dashboard/code.html">Find Care</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">Find Jobs</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<a href="../join_kasecare/code.html" class="hidden md:block font-label-md text-label-md text-primary font-bold px-6 py-2 rounded-xl border-1.5 border-primary hover:bg-primary/5 transition-all scale-95 active:scale-90">Sign In</a>
+<span class="material-symbols-outlined md:hidden text-primary">menu</span>
+</div>
+</header>
+<main class="pt-24 pb-32">
+<div class="max-w-[1200px] mx-auto px-container-padding-mobile md:px-container-padding-desktop">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row items-center gap-12 mb-section-gap">
+<div class="relative w-full md:w-1/3">
+<div class="circular-embrace bg-secondary-container p-2 aspect-square group transition-transform duration-700 hover:rotate-3">
+<img class="w-full h-full object-cover circular-embrace" data-alt="A professional and warm portrait of a middle-aged female caregiver with a friendly smile, set against a soft, sun-drenched domestic background. The lighting is warm and natural, reinforcing a sense of neighborly trust and security. The image has a soft focus on the background to emphasize the person's approachable and kind expression, perfectly aligning with the Human-Centered Modernism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyEiEsQBDQT0hffV-j6zduYWPQjciEIiBBtewSO2ryYgTKTjmD9HNvQBrTAWVYWFkZKb7qYRoTcIu4IaD7nv64IwRBOGpAPOLRCZUkjI565mkROgAlLbQi8HgmmC5YxhXtMn_UhmrGxQ9UM9ic3Y86w9dGjKc87_djvRNGz-ZiPYDrtT9SSSh8BXj98jPRJ5cnZ6tcGtECFTdLeHpxTEQTI8-sg_elNtkXPjXoIZ4NWAaXb5oWA9NEkc87wxXZ-PIPD-VnN9XekkrB"/>
+</div>
+<div class="absolute -bottom-4 -right-4 bg-secondary text-on-secondary px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md">Verified Pro</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Elena Rodriguez</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Dedicated Specialist in Senior Care &amp; Early Child Development</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9 (124 reviews)</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-md text-label-md">Park Slope, NY</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">$28/hr</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl text-body-md hover:shadow-xl transition-all active:scale-95">Request Care</button>
+</div>
+</section>
+<!-- Verification & Safety Bento -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Trust &amp; Safety Badges</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary text-on-primary p-6 rounded-xl flex flex-col items-center text-center group hover:scale-[1.02] transition-transform">
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-4 text-secondary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Background Check</h3>
+<p class="font-body-md text-body-md opacity-90 text-on-primary-container">Cleared federal &amp; local background screens as of Nov 2024.</p>
+</div>
+<div class="bg-surface-container-low border-2 border-primary/10 p-6 rounded-xl flex flex-col items-center text-center group hover:scale-[1.02] transition-transform">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center mb-4 text-secondary">
+<span class="material-symbols-outlined text-4xl">medical_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">CPR Certified</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">American Red Cross Pediatric and Adult CPR/First Aid certification.</p>
+</div>
+<div class="bg-surface-container-low border-2 border-primary/10 p-6 rounded-xl flex flex-col items-center text-center group hover:scale-[1.02] transition-transform">
+<div class="w-16 h-16 bg-surface-container-highest rounded-full flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-4xl">school</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">B.S. Nursing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Specialized education in geriatric care and developmental psychology.</p>
+</div>
+</div>
+</section>
+<!-- About & Timeline -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-section-gap">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">About Elena</h2>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p>With over 12 years of experience, I bring a unique blend of clinical knowledge and neighborly warmth to every family I assist. My approach is centered on "Circular Care"—creating a safe, supportive environment where everyone feels protected.</p>
+<p>I started my journey in community health centers and transitioned to private caregiving to build deeper, more meaningful relationships with the families I serve.</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-8 border-l-4 border-primary shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Experience Timeline</h3>
+<div class="space-y-6">
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-1.5 top-1 w-3 h-3 bg-secondary rounded-full"></div>
+<h4 class="font-label-md text-label-md text-primary font-bold">2020 - Present</h4>
+<p class="font-body-md text-body-md text-on-surface">Senior Care Specialist, Brooklyn Neighborhood Group</p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-1.5 top-1 w-3 h-3 bg-outline-variant rounded-full"></div>
+<h4 class="font-label-md text-label-md text-on-surface-variant font-bold">2016 - 2020</h4>
+<p class="font-body-md text-body-md text-on-surface">Pediatric Care Assistant, Saint Jude's</p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-1.5 top-1 w-3 h-3 bg-outline-variant rounded-full"></div>
+<h4 class="font-label-md text-label-md text-on-surface-variant font-bold">2012 - 2016</h4>
+<p class="font-body-md text-body-md text-on-surface">Certified Home Health Aide</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Care Types Offered</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-6 rounded-2xl bg-white border border-primary/5 flex flex-col items-center gap-3 hover:bg-secondary-container/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">elderly</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Senior Care</span>
+</div>
+<div class="p-6 rounded-2xl bg-white border border-primary/5 flex flex-col items-center gap-3 hover:bg-secondary-container/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">child_care</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Childcare</span>
+</div>
+<div class="p-6 rounded-2xl bg-white border border-primary/5 flex flex-col items-center gap-3 hover:bg-secondary-container/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">pets</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Pet Care</span>
+</div>
+<div class="p-6 rounded-2xl bg-white border border-primary/5 flex flex-col items-center gap-3 hover:bg-secondary-container/10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">home_health</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">House Help</span>
+</div>
+</div>
+</section>
+<!-- Availability -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Weekly Availability</h2>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary-container rounded-full"></span> Available
+                    </span>
+</div>
+<div class="overflow-x-auto pb-4">
+<div class="grid grid-cols-7 min-w-[700px] gap-2">
+<!-- Header Row -->
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Mon</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Tue</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Wed</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Thu</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Fri</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Sat</div>
+<div class="text-center font-label-md text-label-md text-on-surface-variant py-2">Sun</div>
+<!-- Morning Slot -->
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">AM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">AM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">AM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">AM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">AM</div>
+<div class="bg-surface-container-high h-12 rounded-lg"></div>
+<div class="bg-surface-container-high h-12 rounded-lg"></div>
+<!-- Afternoon Slot -->
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">PM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">PM</div>
+<div class="bg-surface-container-high h-12 rounded-lg"></div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">PM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">PM</div>
+<div class="bg-secondary-container h-12 rounded-lg flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container">PM</div>
+<div class="bg-surface-container-high h-12 rounded-lg"></div>
+</div>
+</div>
+</section>
+<!-- Reviews -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Recent Family Reviews</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-primary/5">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img data-alt="A portrait of a young woman with a joyful smile, representing a happy client. The lighting is bright and cheerful, echoing the primary brand colors of gold and cream. The background is a modern living space, emphasizing community and domestic safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2qE8gYqzW6I47wTtXVFGvcaQiGmCYOgjcIBVH14aLcpzEvOFq6WP5Lw6UomtSULIR7SkNKk2Rv7xK9MzrxJZjuzNdscA_SRa2sqIUTy-OF6DcWgClI06jzgRsBnolRbAaoRy4v0ZoHkmP1jhadcOKEMuPlwMQo3FZ8H_98_j9UdEfXPRegtg1kX9hTS4V8UX2W_KvMyLEMfeKQo3cisDGNfUOGxbE4kRzWHQBw6AQ8wnn1skGlXLhsyrwkIW2iUzaYTEkO0oM4sYh"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Sarah M.</p>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Elena has been a blessing for my mother. Her nursing background gives us so much peace of mind, and she truly treats my mom like her own family."</p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-primary/5">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img data-alt="A portrait of a middle-aged man with a calm, trust-inspiring expression. He is wearing a professional yet casual shirt in a forest green tone. The image has a soft, high-key lighting style to match the modern, safe aesthetic of the KacheCare brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjumXA_BQsVox5K99PAkHyiDKiYxWSUjksXSCzUGG3BUv8T4sZjEIiTZKhur1qDMr95bdXpRUn73GQloAHAgmE_XC_Ec_zulPpGGsye621Ro4zog31JcPkjvOTZUPcoWbDw5U53wcSCdHQiu8I0x-Mqm4PKXy0728MYV3-2fvZqivNXbmvBn6wUguRtH1ZGFeSdlKgHhVeRLqzEyk5FAH3ukuIv2rqp8YRkuL6Ba3S2mnXY9lEQLgALm-9ybWS7i0750t5_5cIGSvP"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">David K.</p>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Reliable, punctual, and very warm. Elena watched our two toddlers for a weekend and they are already asking when she's coming back!"</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 md:hidden bg-surface dark:bg-surface-container shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a href="../kasecare_home/code.html" class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a href="../find_care_dashboard/code.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">person_heart</span>
+<span>Find Care</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">work</span>
+<span>Jobs</span>
+</a>
+<a href="../join_kasecare/code.html" class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">person</span>
+<span>Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-12 px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-start gap-gutter bg-surface-container-low">
+<div class="max-w-xs">
+<span class="font-headline-md text-headline-md text-primary font-bold">KacheCare</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 opacity-80">Neighborhood warmth, verified trust. Professional care for the ones you love most.</p>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Community Guidelines</a>
+</div>
+<div class="w-full md:w-auto pt-8 md:pt-0 border-t md:border-none border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 KacheCare. Neighborhood warmth, verified trust.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+        
+        // Optional subtle parallax/scroll reveal for bento cards
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    section.classList.add('opacity-100');
+                    section.classList.remove('opacity-0');
+                    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body></html>

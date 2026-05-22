@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KacheCare | Care Made Easy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#4a4737",
+                        "surface-container-high": "#eae7e7",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ccc6b1",
+                        "tertiary": "#3f3c2c",
+                        "surface-dim": "#dcd9d9",
+                        "secondary": "#785900",
+                        "on-secondary-container": "#6c5000",
+                        "secondary-fixed-dim": "#fabd00",
+                        "secondary-fixed": "#ffdf9e",
+                        "primary-fixed": "#aef1c8",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline": "#707972",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary-container": "#93d5ae",
+                        "on-primary-fixed-variant": "#085134",
+                        "on-tertiary-container": "#cdc7b1",
+                        "surface-tint": "#296a4a",
+                        "tertiary-container": "#575342",
+                        "tertiary-fixed": "#e9e2cc",
+                        "primary-container": "#1b5e3f",
+                        "inverse-primary": "#93d5ae",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002112",
+                        "on-secondary-fixed": "#261a00",
+                        "inverse-on-surface": "#f3f0f0",
+                        "primary-fixed-dim": "#93d5ae",
+                        "outline-variant": "#bfc9c0",
+                        "background": "#fcf9f8",
+                        "on-background": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "primary": "#00452a",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed": "#1e1c0e",
+                        "secondary-container": "#fdc003",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#404942",
+                        "surface": "#fcf9f8",
+                        "surface-container": "#f0eded"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "2.5rem",
+                        "container-padding-mobile": "1.25rem",
+                        "gutter": "1.5rem",
+                        "section-gap": "4rem",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Sora"],
+                        "headline-xl": ["Sora"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #fcf9f8; color: #1b1c1c; }
+        .circular-embrace { border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(0, 69, 42, 0.1); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">KacheCare</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="../kasecare_home/code.html">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="../find_care_dashboard/code.html">Find Care</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">Find Jobs</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<a href="../join_kasecare/code.html" class="hidden md:block font-label-md text-label-md text-primary font-bold hover:text-secondary transition-colors active:scale-95">Sign In</a>
+<a href="../join_kasecare/code.html" class="bg-primary text-on-primary px-6 py-2 rounded-xl font-label-md text-label-md hover:bg-opacity-90 transition-transform active:scale-90">Join Community</a>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex items-center justify-center px-container-padding-mobile md:px-container-padding-desktop overflow-hidden bg-surface-bright">
+<div class="w-full max-w-[800px] mx-auto z-10 text-center">
+<div class="space-y-8 animate-fade-in">
+<div class="space-y-4">
+<h1 class="font-headline-xl text-headline-xl text-primary leading-tight">
+                            Care Made Easy.<br/>Trust Built Local.
+                        </h1>
+<h2 class="font-headline-md text-headline-md text-secondary font-semibold" lang="bn">
+                            যত্ন এখন আপনার আশেপাশেই
+                        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                            Verified, safe, and trusted care connections in your neighborhood. We bridge the gap between quality assistance and the families who need it.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4 justify-center">
+<a href="../find_care_dashboard/code.html" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:shadow-lg transition-all active:scale-95">
+                            Find Care
+                        </a>
+<a href="#" class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:shadow-lg transition-all active:scale-95">
+                            Find Jobs
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+</a>
+</div>
+<div class="flex items-center justify-center gap-6 pt-4 border-t border-outline-variant/30 max-w-md mx-auto">
+<div class="flex -space-x-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHs0fsqedUGj7PyGqYTxQ8Yz_B69QrbsBIz4gv9OIv9HYbDolPIGutjUkwI-AkdpIi6p4EBAToDAYGrYpiUR_1UTvVunUlO8cWA3EDQZNPMxvc8lWILdHnldDHh5u8mtrfqNXOTJy_VgrbG1VVLmdLsiAY_yUW7a9XYv-12wKoETJCsW8cU8zjbrlvqQbO3ufaZt9KXCu7LEqzd1s-d-klE1sGLKfLtsqd04mgpALonlKDI3nj9dKrXoNKyWGpTsBxl72Df0lnAWQi"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTKXwM6ek21WVZ-gjk0l8iVf5YElOkw-B3KSCCpavcxMj9O2lUSKmTcy20u277XuDgBBNTFkJAB6F4-0HFVPLxifXR2hYK5OFDWozV69Jx6pwFY61fDDu1Pf52-jy8RcJfk1F_2A2lp0WQcG5OWq0sQlZi478XbdzmmrLt2EfdADTK_wZMY0ikFpaQurv0HwOxOk19F21pIgeH0-b3JW-lVPg7BmkcukRNeg9lO4ilqH9uXaqKbDOSrzwy1sMq93cflqyKFJaz7Pc_"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPT7NF88aUhbhBsBsLJ8BCr6vg2bFescxJwlFt_4C67hxbpfoh4jr0W9z-A7aVbRWv3IKdU23owxjKrqP2rloj6SNoKbaTwQJKSYCgvLnuGd7ZJcRtUuk6xAO3sKEutdGxUTfdpGx3mmSSzLtv2MVA4u0kvBGuqpsh4qXo-X9OOjcUJtBxhbKUJciqybduI_jKpnnOU4BGmW6z_Jl6Ah8LRnE1Whpw-Kjul2-tfB6lJROF22Dxxfzp4GL0ELK7P1peyeN4_UrP5M1_"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-primary font-bold">1,200+</span> Verified Caregivers nearby
+                        </p>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-20 right-[5%] w-32 h-32 bg-secondary-fixed/30 rounded-full blur-2xl"></div>
+<div class="absolute bottom-20 left-[5%] w-48 h-48 bg-primary-fixed/30 rounded-full blur-3xl"></div>
+</section>
+<!-- Value Pillars - Bento Grid Style -->
+<section class="py-section-gap px-container-padding-mobile md:px-container-padding-desktop bg-surface-container-low">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Built on Three Pillars of Trust</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">We don't just connect you; we ensure every connection is built on a foundation of safety and mutual respect.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pillar 1 -->
+<div class="bg-surface p-8 rounded-3xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-all group">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed-dim/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Verified Caregivers</h3>
+<p class="text-on-surface-variant">Every professional on KacheCare undergoes a rigorous 5-step background verification process including criminal checks and reference validation.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-primary p-8 rounded-3xl shadow-xl border border-primary-container group">
+<div class="w-16 h-16 rounded-2xl bg-on-primary-fixed-variant flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-3xl">check</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-primary mb-4">Home Safety-Reviewed</h3>
+<p class="text-on-primary/80">Our specialized safety protocols ensure that home environments are prepared for care, providing peace of mind for both families and workers.</p>
+<div class="mt-8 pt-8 border-t border-on-primary/10">
+<span class="font-label-sm text-label-sm text-secondary-fixed">"Top-rated safety protocols 2024"</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface p-8 rounded-3xl shadow-sm border border-outline-variant/10 hover:shadow-md transition-all group">
+<div class="w-16 h-16 rounded-2xl bg-secondary-fixed/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">handshake</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Trust-Based Connections</h3>
+<p class="text-on-surface-variant">We prioritize local, neighborhood-focused matching to foster genuine relationships that go beyond a simple transaction of care.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="py-section-gap px-container-padding-mobile md:px-container-padding-desktop">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-video rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A candid, warm-toned photograph of a diverse neighborhood gathering in a park, with children playing and elderly residents chatting on benches. The scene is filled with soft afternoon sunlight and lush greenery, embodying the essence of neighborhood warmth and community support. The aesthetic is professional yet approachable, with a cream-based color palette that feels lived-in and safe. The overall vibe is one of profound trust and protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk9x2WKmADM29XD2jqM3Uv2JFLy17tjcgxQl1ia_ggEU4QYyLoFaxWhMaSCHPjWg-vEWO_u1BmB5e0G-0uLq6TuzdmvsfcYBep3w-v1R9S7oPBl3humC9vNf91lqIdsf9Qv3JLcsG4QFZyNbthuKpDYxgwKkIujdewme6Bmp0dgBG93KEXCm28qJqN30d6RLfKeKsEKrxI5cFh3zXoOfxrqv-37amMR3pxdIcsMwg9J6b8oIx-5CEv37JwdQSFtdCtRz0gnNxLvfbw"/>
+</div>
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary-container rounded-full -z-10 animate-pulse"></div>
+</div>
+<div class="space-y-10">
+<div class="space-y-4">
+<span class="text-secondary font-bold uppercase tracking-widest text-xs">Community Testimonials</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Voices from the Neighborhood</h2>
+</div>
+<div class="space-y-6">
+<div class="glass-card p-6 rounded-2xl relative">
+<span class="material-symbols-outlined absolute -top-4 -left-4 text-4xl text-secondary-fixed-dim" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="text-body-lg text-on-surface-variant italic mb-4">"Finding a caregiver for my mother was stressful until we found KacheCare. The verification badge gave us the initial trust, but the quality of care provided by Sarah truly felt like a neighbor helping a neighbor."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant"></div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Rahim Ahmed</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Family Member, Dhaka</p>
+</div>
+</div>
+</div>
+<div class="flex gap-12 pt-8">
+<div>
+<p class="text-3xl font-bold text-primary">98%</p>
+<p class="text-label-sm text-on-surface-variant">Satisfaction Rate</p>
+</div>
+<div class="w-px h-12 bg-outline-variant"></div>
+<div>
+<p class="text-3xl font-bold text-primary">15k+</p>
+<p class="text-label-sm text-on-surface-variant">Care Hours Logged</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap px-container-padding-mobile md:px-container-padding-desktop">
+<div class="max-w-[1000px] mx-auto bg-primary text-on-primary rounded-[40px] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/30 circular-embrace -mr-20 -mt-20"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary-container/10 circular-embrace -ml-20 -mb-20"></div>
+<div class="relative z-10 space-y-8">
+<h2 class="font-headline-xl text-headline-xl text-white">Ready to find the right care?</h2>
+<p class="text-on-primary/70 text-body-lg max-w-2xl mx-auto">Join thousands of families and caregivers who have found their trusted match right in their neighborhood.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+<a href="../join_kasecare/code.html" class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-full font-headline-md text-headline-md hover:scale-105 transition-transform active:scale-95 shadow-xl">
+                            Get Started Now
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-start gap-gutter bg-surface-container-low">
+<div class="space-y-6 max-w-sm">
+<span class="font-headline-md text-headline-md text-primary font-bold">KacheCare</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 KacheCare. Neighborhood warmth, verified trust. Our mission is to humanize care through technology and local community support.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">diversity_3</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Our Process</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Legal</h4>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Community Guidelines</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 md:hidden bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-all" href="../kasecare_home/code.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95" href="../find_care_dashboard/code.html">
+<span class="material-symbols-outlined">person_heart</span>
+<span class="font-label-sm text-label-sm">Find Care</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95" href="../join_kasecare/code.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for smooth scrolling or hover effects
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Atmospheric parallax effect on background circles
+        window.addEventListener('mousemove', (e) => {
+            const circles = document.querySelectorAll('.circular-embrace');
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            circles.forEach(circle => {
+                circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body></html>

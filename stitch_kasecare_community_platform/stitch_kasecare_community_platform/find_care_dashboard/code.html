@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Care Seeker Dashboard | KacheCare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#4a4737",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#ccc6b1",
+                    "tertiary": "#3f3c2c",
+                    "surface-dim": "#dcd9d9",
+                    "secondary": "#785900",
+                    "on-secondary-container": "#6c5000",
+                    "secondary-fixed-dim": "#fabd00",
+                    "secondary-fixed": "#ffdf9e",
+                    "primary-fixed": "#aef1c8",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "outline": "#707972",
+                    "surface-bright": "#fcf9f8",
+                    "on-primary-container": "#93d5ae",
+                    "on-primary-fixed-variant": "#085134",
+                    "on-tertiary-container": "#cdc7b1",
+                    "surface-tint": "#296a4a",
+                    "tertiary-container": "#575342",
+                    "tertiary-fixed": "#e9e2cc",
+                    "primary-container": "#1b5e3f",
+                    "inverse-primary": "#93d5ae",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002112",
+                    "on-secondary-fixed": "#261a00",
+                    "inverse-on-surface": "#f3f0f0",
+                    "primary-fixed-dim": "#93d5ae",
+                    "outline-variant": "#bfc9c0",
+                    "background": "#fcf9f8",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "primary": "#00452a",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "on-tertiary-fixed": "#1e1c0e",
+                    "secondary-container": "#fdc003",
+                    "surface-variant": "#e4e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#404942",
+                    "surface": "#fcf9f8",
+                    "surface-container": "#f0eded"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "2.5rem",
+                    "container-padding-mobile": "1.25rem",
+                    "gutter": "1.5rem",
+                    "section-gap": "4rem",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Sora"],
+                    "headline-xl": ["Sora"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Sora"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-gold-underline {
+            position: relative;
+        }
+        .active-gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #785900;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .active-gold-underline:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .caregiver-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .caregiver-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">KacheCare</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="../kasecare_home/code.html">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="../find_care_dashboard/code.html">Find Care</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">Find Jobs</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors font-label-md text-label-md" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<a href="../join_kasecare/code.html" class="hidden md:block text-primary font-bold font-label-md text-label-md hover:text-secondary transition-colors">Sign In</a>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User profile" data-alt="A professional and friendly portrait of a young woman with a warm smile, set against a clean, soft-lit studio background. The aesthetic is modern and high-key, using a cream and forest green color palette to reflect a sense of professional care and trust. Lighting is soft and natural, emphasizing approachable neighborhood warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcqDwo9pGUvlw9AI6F1CsIkWPAGJrcd32ClRvSolQZw5ciqUWUzLy8X4BWmJUg1rtdePp7f0oZ9YPnvzSaHh7J57aTn_KGvWiVVoMFZ40bNyCuqf3sIiogCRZIh69vWPHd1q9BpqjFxdJMeocaCCN_Hfz0_-Tc3HPIhZ9bdQ0PUXJnld8TSd7QWAFCbSztSE1QOLklxMXgJzm1Rg95T4K1bEvjnI2xf5Kt9r4VWoCA97Yc7wRn3sHwgu0tppFS5zHlz15DPR-FjcAT"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-container-padding-mobile md:px-container-padding-desktop max-w-[1200px] mx-auto">
+<!-- Hero Search Section -->
+<section class="mb-12">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4 text-center md:text-left">Find trusted care in your neighborhood</h1>
+<div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-sm border border-outline-variant/10 max-w-4xl">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">location_on</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-lg border-outline-variant bg-surface focus:ring-primary focus:border-primary font-body-md text-body-md transition-all" placeholder="Enter your city or zip code" type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold font-label-md text-label-md hover:opacity-90 transition-transform active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                        Search Caregivers
+                    </button>
+</div>
+</div>
+</section>
+<!-- Filter Chips Section -->
+<section class="mb-10 overflow-x-auto">
+<div class="flex items-center gap-3 pb-2">
+<span class="font-label-md text-label-md text-on-surface-variant mr-2">Filters:</span>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border-1.5 border-primary text-primary font-bold bg-primary/5 flex items-center gap-2 font-label-sm text-label-sm">
+                    Type of Care <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-2 font-label-sm text-label-sm">
+                    Availability <span class="material-symbols-outlined text-sm">calendar_month</span>
+</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-2 font-label-sm text-label-sm">
+                    Ratings <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-sm text-label-sm">
+                    Experience
+                </button>
+</div>
+</section>
+<!-- Matching Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Caregiver Card 1 -->
+<div class="caregiver-card bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-primary relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Sarah J." data-alt="A warm and professional portrait of a middle-aged female caregiver with kind eyes and a welcoming expression. She is wearing a soft green sweater, standing in a brightly lit, cozy home environment that feels safe and inviting. The image is captured with shallow depth of field, creating a high-end, professional look using soft gold and forest green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU13ZlXzJn9KtAmb6Ev4F2tooqr2qL9tPtdxHz3PQTty3OstCuMzmaQoIxvUVTFX34NTZSGhvp25Lhj7hLyBibO6D9jxGIMSetcXi_uTCCxXFAoiLspMPFYg5VWQy24GekxjiVBHVZeCQmo27mFNNlTDvWSZ_6IS3OX09e_SkQH0Rdqb3IlKWOhErUve7U1y6nINpZpgQsl1wnuWV6P4bhBPeJcgzK9p_OdbXxRlKrK3ucemmMoykYNvLI5Wf53An03riYRVJqF7Cy"/>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm">Verified</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Sarah Jenkins</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-4">Elderly Care &amp; Companion • 8 yrs exp.</p>
+<div class="flex items-center gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="ml-2 font-bold text-on-surface">4.9</span>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-bold font-label-md text-label-md hover:bg-secondary/90 transition-transform active:scale-95" onclick="window.location.href='../caregiver_profile_amina_rahman/code.html'">View Profile</button>
+</div>
+<!-- Caregiver Card 2 -->
+<div class="caregiver-card bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-primary relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="David R." data-alt="A friendly male caregiver in his late 20s with an approachable and trustworthy demeanor. He is smiling warmly in a bright, modern living room setting filled with soft natural light. The visual style is minimalist and high-quality, emphasizing stability and communal support through a palette of soft cream, forest green, and vibrant gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQqZIkaepRK9goc-Qr3jOTh4qDAATBbj883_hGvLyJa-vj9XPjTx67c1TS8z196vRY-KMk-M1tc7kOODiTVoek99wDJybxpy7tfXuX1HqQonrrASr2vkh74FjQPx7X2nMzwNNGr-pk0kkqP_KRAb4o2wx6QQ4d89Q1M2VNm_LPh96XK_GueQr8WZjnnAF5W4ErTg2IWotTge_Pn4EGAsGO1kbdg-sNU_Lu4Nx1nTgsHVPfymHCVbjXzxRP2zZ1vnxheAB4BuOi2IQ"/>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm">Verified</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">David Rodriguez</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-4">Special Needs &amp; Physical Therapy</p>
+<div class="flex items-center gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-2 font-bold text-on-surface">5.0</span>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-bold font-label-md text-label-md hover:bg-secondary/90 transition-transform active:scale-95" onclick="window.location.href='../caregiver_profile_amina_rahman/code.html'">View Profile</button>
+</div>
+<!-- Caregiver Card 3 -->
+<div class="caregiver-card bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-primary relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Elena M." data-alt="A professional female nurse or caregiver with a confident yet gentle smile. She is wearing a professional medical scrub in a muted tone, standing in a clean, modern facility with warm wooden accents and soft lighting. The image evokes deep trust and professional safety, aligned with a high-stakes caregiving design language featuring forest green and gold elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU68eveC5h0PFeHAMtBWckdhN3LFEpVF9DwNwasXa-fuaL1JJ3_4tM2dFAbOSRyRGHPafi6N_Pmk5rYf47-G4GIBpc6pUcgvHxQMe8GwocOMGvGYg-z6xGACHIu-j-hQodYdy-wGihbQEzNzBGGClP2lhFXaC144eVsDyRPRR6mWNafrXYx9q163EGQqhKzi7oEsbh2RvKHF_O0QhH-b2bn_hM9KcjPU3cMP0GgKDvnMSu0rIwM-0XYY_nEeYDrfx6PpAWcNiqj_UH"/>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm">Verified</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Elena Moretti</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-4">Post-Op Recovery &amp; Nursing</p>
+<div class="flex items-center gap-1 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary">star</span>
+<span class="ml-2 font-bold text-on-surface">4.8</span>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-bold font-label-md text-label-md hover:bg-secondary/90 transition-transform active:scale-95" onclick="window.location.href='../caregiver_profile_amina_rahman/code.html'">View Profile</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 md:hidden bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a href="../kasecare_home/code.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="../find_care_dashboard/code.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_heart</span>
+<span class="font-label-sm text-label-sm">Find Care</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Jobs</span>
+</a>
+<a href="../join_kasecare/code.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-start gap-gutter bg-surface-container-low">
+<div class="flex flex-col gap-4 max-w-sm">
+<span class="font-headline-md text-headline-md text-primary font-bold">KacheCare</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Neighborhood warmth, verified trust. Connecting those in need with those who care.</p>
+<p class="font-label-sm text-label-sm text-outline">© 2024 KacheCare. All rights reserved.</p>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4">
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">Community Guidelines</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for input animation as described in style guidance
+        const searchInput = document.querySelector('input');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+            });
+        }
+
+        // Tonal card interactions
+        document.querySelectorAll('.caregiver-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 20px 25px -5px rgba(0, 69, 42, 0.05), 0 8px 10px -6px rgba(0, 69, 42, 0.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body></html>
